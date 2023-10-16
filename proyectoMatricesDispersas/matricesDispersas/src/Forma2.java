@@ -45,7 +45,7 @@ public class Forma2 {
         } while (posicion != matrizDefinitiva.punta);
     }
 
-    public String Mostrar(int columna, int fila) {
+    public String Mostrar(int fila, int columna) {
         int k=0,m=0;
         String s = " ";
         nodoF2 p = matrizDefinitiva.punta.getLigaColumna();

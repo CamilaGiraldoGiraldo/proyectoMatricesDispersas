@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Tripleta {
     int[][] matriz;
 
@@ -39,13 +41,17 @@ public class Tripleta {
 
     void mostrar() {
         String s = "";
-        for (int i = 0; i < matriz.length; i++) {
+        for (int i = 1; i < matriz.length; i++) {
+            if (matriz[i][0] != matriz [i-1][0]){
+                s = s + "\n";
+            }else{
+               s = s + " - "; 
+            }      
             for (int j = 0; j < matriz[i].length; j++) {
-                s = s + " " + matriz[i][j] + " ";
+                s = s + " | " + matriz[i][j] + " | ";
             }
-            s = s + "\n";
         }
-        System.out.println(s);
+        JOptionPane.showMessageDialog(null, s);;
     }
 
     void sumaFila() {
@@ -66,10 +72,10 @@ public class Tripleta {
         }
         s = s + "Fila " + j + " = " + suma + "\n";
 
-        System.out.println(s);
+        JOptionPane.showMessageDialog(null, s);;
     }
 
     void sumaColumna(){
-
+        
     }
 }
