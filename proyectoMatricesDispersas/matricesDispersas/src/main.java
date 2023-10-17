@@ -84,14 +84,12 @@ public class main {
                                 JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
                                 break;
                         }
-                        break;
                     } while (controlMenu);
-
+                    break;
                 case 2: {
 
                 }
-                    while (ControlMenu2)
-                        ;
+
                     break;
 
                 case 3:
@@ -99,17 +97,47 @@ public class main {
                     dispersForma2.crear(matriz, fila, columna);
                     do {
                         int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                                "   ***** Bienvenido al Menu de tripletas *****   \n         Que accion desea ejecutar?          \n"
+                                "   ***** Bienvenido al Menu de matrices dispersas Forma 2 *****   \n         Que accion desea ejecutar?          \n"
                                         + "1. Mostrar matriz en forma 2 \n"
-                                        + "2. Mostrar matriz Original\n"
-                                        + "3. Suma fila\n"
-                                        + "4. Suma Columnas\n"
-                                        + "5. Salir"));
+                                        + "2. Suma fila\n"
+                                        + "3. Suma Columnas\n"
+                                        + "4. Insertar dato\n"
+                                        + "5. Eliminar dato\n"
+                                        + "6. Sumar dos matrices\n"
+                                        + "7. Multiplicar dos matrices\n"
+                                        + "8. Salir"));
                         switch (opcion) {
                             case 1:
                                 JOptionPane.showMessageDialog(null, dispersForma2.Mostrar(columna, fila));
                                 break;
+                            case 2:
+                                JOptionPane.showMessageDialog(null, dispersForma2.sumaFilas(columna, fila));
+                                break;
+                            case 3:
+                                JOptionPane.showMessageDialog(null, dispersForma2.sumaColumnas(columna, fila));
+                                break;
+                            case 4:
+                                int d=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dato nuevo:"));
+                                dispersForma2=dispersForma2.insertarDato(d, matriz, fila, columna);
+                            break;
                             case 5:
+                            boolean control=false;
+                            do{
+                                int eleccion=Integer.parseInt(JOptionPane.showInputDialog("Bienvenido al menú eliminar: \n"
+                                                            + "1.Eliminar por dato\n"
+                                                            + "2. Eliminar por fila y columna\n"))  ; 
+                                                            
+                                switch(eleccion){
+                                    case 1:
+                                        dispersForma2.EliminarDato(dispersForma2, fila, columna);
+                                    break;
+                                    case 2:
+                                        dispersForma2.EliminarFilas(dispersForma2,fila,columna);
+                                    break;
+                                }
+                            }while (control);
+                            break;
+                            case 6:
                                 controlMenu = false;
                                 JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema");
                                 break;
@@ -117,10 +145,8 @@ public class main {
                                 JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
 
                         }
-                        break;
                     } while (controlMenu);
                     break;
-
                 case 4:
                     Control = false;
                     JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema");
