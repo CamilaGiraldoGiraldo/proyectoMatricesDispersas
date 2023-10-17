@@ -108,9 +108,13 @@ public class main {
                                 }
                             }while (control);
                             break;
-                            case 7:
+                            case 6:
+                                int [][]matrizNueva = generadorMatriz();
                                 Forma2 matrizSuma = new Forma2();
-
+                                Forma2 mForma2= new Forma2();
+                                mForma2.crear(matrizNueva, matrizNueva.length, matrizNueva[0].length);
+                                matrizSuma=dispersForma2.sumaMatrices(mForma2);
+                                JOptionPane.showMessageDialog(null, matrizSuma.Mostrar(matriz.length, matriz[0].length));
                                 break;
                             case 8:
                                 controlMenu = false;

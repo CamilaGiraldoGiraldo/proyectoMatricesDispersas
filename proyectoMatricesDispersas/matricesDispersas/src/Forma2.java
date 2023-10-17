@@ -203,12 +203,44 @@ public class Forma2 {
             }
             p = p.getLigaColumna();
         }
-
         if (encontrado==false){
             JOptionPane.showMessageDialog(null, "Esta fila esta vacia");
         }
         else{
             JOptionPane.showMessageDialog(null, "Dato eliminado con exito");
         }
+    }
+
+    public Forma2 sumaMatrices (Forma2 matriz2){
+        int k=0, m=0;
+        Forma2 sumaMatrices= new Forma2();
+        int [][] suma= new int[matrizDefinitiva.punta.getFila()][matrizDefinitiva.punta.getColumna()];
+        nodoF2 p,s;
+        if (matrizDefinitiva.punta.getColumna()== matriz2.matrizDefinitiva.punta.getColumna() && matrizDefinitiva.punta.getFila() == matriz2.matrizDefinitiva.punta.getFila()){
+            while (k< matrizDefinitiva.punta.getFila()){
+                while (m<matrizDefinitiva.punta.getColumna()){
+                    p = matrizDefinitiva.punta.getLigaFila();
+                    s = matriz2.matrizDefinitiva.punta.getLigaFila();
+                    while (p != matrizDefinitiva.punta && s!= matriz2.matrizDefinitiva.punta) {
+                    if (p.getFila() == k && s.getFila()== k && p.getColumna() == m && s.getColumna()==m) {
+                        suma[p.getFila()][p.getColumna()]=p.getDato()+s.getDato();
+                    }
+                    else if (p.getFila()==k && s.getColumna()==m){
+                        suma[p.getFila()][p.getColumna()]=p.getDato();
+                    }
+                    else{
+                         suma[p.getFila()][p.getColumna()]=s.getDato();
+                    }
+                    p = p.getLigaFila();
+                    s = s.getLigaFila();
+                }
+            }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Estas matrices no se pueden sumar");
+        }
+        sumaMatrices.crear(suma, suma.length, suma[0].length);
+        return sumaMatrices;
     }
 }
