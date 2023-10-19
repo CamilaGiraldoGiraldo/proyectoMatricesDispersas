@@ -24,7 +24,7 @@ public class Forma2 {
         nodoF2 q = posicion.getLigaFila();
 
         do {
-            while (k < fila) {
+            while (k < columna) {
                 q = matrizDefinitiva.punta.getLigaFila();
                 while (q != matrizDefinitiva.punta) {
                     if (q.getColumna() != k) {
@@ -132,11 +132,13 @@ public class Forma2 {
         return Nuevo;
     }
 
-    public void EliminarFilas(Forma2 matriz,int filas, int columnas) {
+    public void EliminarFilas(Forma2 matriz, int filas, int columnas) {
         boolean encontrado = false;
-        int fila = Integer.parseInt(JOptionPane.showInputDialog("Esta es la matriz que tienes\n" +matriz.Mostrar(columnas,filas) + "Ingrese la fila en la que desea eliminar el dato: "));
+        int fila = Integer.parseInt(JOptionPane.showInputDialog("Esta es la matriz que tienes\n"
+                + matriz.Mostrar(columnas, filas) + "Ingrese la fila en la que desea eliminar el dato: "));
         int columna = Integer
-                .parseInt(JOptionPane.showInputDialog("Esta es la matriz que tienes\n" +matriz.Mostrar(columnas,filas) +"Ingrese la columna en la que desea eliminar el dato: "));
+                .parseInt(JOptionPane.showInputDialog("Esta es la matriz que tienes\n" + matriz.Mostrar(columnas, filas)
+                        + "Ingrese la columna en la que desea eliminar el dato: "));
         nodoF2 p = matrizDefinitiva.punta.getLigaFila(), a = matrizDefinitiva.punta;
         p = matrizDefinitiva.punta.getLigaFila();
         while (p != matrizDefinitiva.punta && encontrado != true) {
@@ -148,38 +150,38 @@ public class Forma2 {
             p = p.getLigaFila();
             a = a.getLigaFila();
         }
-        p = matrizDefinitiva.punta.getLigaFila(); a = matrizDefinitiva.punta;
-        encontrado=false;
+        p = matrizDefinitiva.punta.getLigaFila();
+        a = matrizDefinitiva.punta;
+        encontrado = false;
         while (p != matrizDefinitiva.punta && encontrado != true) {
             if (p.getFila() == fila && p.getColumna() == columna) {
                 encontrado = true;
                 a.setLigaColumna(p.getLigaColumna());
                 p.setLigaColumna(null);
             }
-            if (a==matrizDefinitiva.punta){
-                a=a.getLigaFila();
-            }
-            else{
+            if (a == matrizDefinitiva.punta) {
+                a = a.getLigaFila();
+            } else {
                 a = a.getLigaColumna();
             }
             p = p.getLigaColumna();
         }
 
-        if (encontrado==false){
+        if (encontrado == false) {
             JOptionPane.showMessageDialog(null, "Esta fila esta vacia");
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Dato eliminado con exito");
         }
     }
 
-        public void EliminarDato(Forma2 matriz,int filas, int columnas) {
+    public void EliminarDato(Forma2 matriz, int filas, int columnas) {
         boolean encontrado = false;
-        int dato = Integer.parseInt(JOptionPane.showInputDialog("Esta es la matriz que tienes\n" +matriz.Mostrar(columnas,filas) + "Ingrese el dato qie desea eliminar: "));
+        int dato = Integer.parseInt(JOptionPane.showInputDialog("Esta es la matriz que tienes\n"
+                + matriz.Mostrar(columnas, filas) + "Ingrese el dato qie desea eliminar: "));
         nodoF2 p = matrizDefinitiva.punta.getLigaFila(), a = matrizDefinitiva.punta;
         p = matrizDefinitiva.punta.getLigaFila();
         while (p != matrizDefinitiva.punta && encontrado != true) {
-            if (p.getDato()==dato) {
+            if (p.getDato() == dato) {
                 encontrado = true;
                 a.setLigaFila(p.getLigaFila());
                 p.setLigaFila(null);
@@ -187,60 +189,114 @@ public class Forma2 {
             p = p.getLigaFila();
             a = a.getLigaFila();
         }
-        p = matrizDefinitiva.punta.getLigaFila(); a = matrizDefinitiva.punta;
-        encontrado=false;
+        p = matrizDefinitiva.punta.getLigaFila();
+        a = matrizDefinitiva.punta;
+        encontrado = false;
         while (p != matrizDefinitiva.punta && encontrado != true) {
-            if (p.getDato()==dato) {
+            if (p.getDato() == dato) {
                 encontrado = true;
                 a.setLigaColumna(p.getLigaColumna());
                 p.setLigaColumna(null);
             }
-            if (a==matrizDefinitiva.punta){
-                a=a.getLigaFila();
-            }
-            else{
+            if (a == matrizDefinitiva.punta) {
+                a = a.getLigaFila();
+            } else {
                 a = a.getLigaColumna();
             }
             p = p.getLigaColumna();
         }
-        if (encontrado==false){
+        if (encontrado == false) {
             JOptionPane.showMessageDialog(null, "Esta fila esta vacia");
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Dato eliminado con exito");
         }
     }
 
-    public Forma2 sumaMatrices (Forma2 matriz2){
-        int k=0, m=0;
-        Forma2 sumaMatrices= new Forma2();
-        int [][] suma= new int[matrizDefinitiva.punta.getFila()][matrizDefinitiva.punta.getColumna()];
-        nodoF2 p,s;
-        if (matrizDefinitiva.punta.getColumna()== matriz2.matrizDefinitiva.punta.getColumna() && matrizDefinitiva.punta.getFila() == matriz2.matrizDefinitiva.punta.getFila()){
-            while (k< matrizDefinitiva.punta.getFila()){
-                while (m<matrizDefinitiva.punta.getColumna()){
-                    p = matrizDefinitiva.punta.getLigaFila();
-                    s = matriz2.matrizDefinitiva.punta.getLigaFila();
-                    while (p != matrizDefinitiva.punta && s!= matriz2.matrizDefinitiva.punta) {
-                    if (p.getFila() == k && s.getFila()== k && p.getColumna() == m && s.getColumna()==m) {
-                        suma[p.getFila()][p.getColumna()]=p.getDato()+s.getDato();
+    public Forma2 sumaMatrices(Forma2 matriz2) {
+        boolean encontrado = false;
+        Forma2 sumaMatrices = new Forma2();
+        int[][] suma = new int[matrizDefinitiva.punta.getFila()][matrizDefinitiva.punta.getColumna()];
+        nodoF2 p, s;
+        if (matrizDefinitiva.punta.getColumna() == matriz2.matrizDefinitiva.punta.getColumna()
+                && matrizDefinitiva.punta.getFila() == matriz2.matrizDefinitiva.punta.getFila()) {
+            p = matrizDefinitiva.punta.getLigaFila();
+            while (p != matrizDefinitiva.punta) {
+                encontrado = false;
+                s = matriz2.matrizDefinitiva.punta.getLigaFila();
+                while (s != matriz2.matrizDefinitiva.punta && encontrado != true) {
+                    if (p.getFila() == s.getFila() && p.getColumna() == s.getColumna()) {
+                        suma[p.getFila()][p.getColumna()] = p.getDato() + s.getDato();
+
+                        encontrado = true;
                     }
-                    else if (p.getFila()==k && s.getColumna()==m){
-                        suma[p.getFila()][p.getColumna()]=p.getDato();
-                    }
-                    else{
-                         suma[p.getFila()][p.getColumna()]=s.getDato();
-                    }
-                    p = p.getLigaFila();
                     s = s.getLigaFila();
                 }
+                if (encontrado == false) {
+                    suma[p.getFila()][p.getColumna()] = p.getDato();
+                }
+                p = p.getLigaFila();
             }
+            s = matriz2.matrizDefinitiva.punta.getLigaFila();
+            while (s != matriz2.matrizDefinitiva.punta) {
+                encontrado = false;
+                p = matrizDefinitiva.punta.getLigaFila();
+                while (p != matrizDefinitiva.punta && encontrado != true) {
+                    if (p.getFila() == s.getFila() && p.getColumna() == s.getColumna()) {
+                        encontrado = true;
+                    }
+                    p = p.getLigaFila();
+                }
+                if (encontrado == false) {
+                    suma[s.getFila()][s.getColumna()] = s.getDato();
+                }
+                s = s.getLigaFila();
             }
-        }
-        else{
+
+        } else {
             JOptionPane.showMessageDialog(null, "Estas matrices no se pueden sumar");
         }
         sumaMatrices.crear(suma, suma.length, suma[0].length);
         return sumaMatrices;
+    }
+
+    public Forma2 multiplicar (Forma2 Multi){
+        int f=0,c=0,k=0;
+        int resultado=0;
+        boolean encontrado=false;
+        nodoF2 p,s;
+        if (matrizDefinitiva.punta.getColumna()==Multi.matrizDefinitiva.punta.getFila()){
+            int [][]multiplicacion = new int [matrizDefinitiva.punta.getFila()][Multi.matrizDefinitiva.punta.getColumna()];
+            p=matrizDefinitiva.punta.getLigaFila();
+            while (f < matrizDefinitiva.punta.getFila()){
+                c=0;
+                while (c < Multi.matrizDefinitiva.punta.getColumna()){
+                        k=0;
+                        while (k< matrizDefinitiva.punta.getColumna()){
+                            s=Multi.matrizDefinitiva.punta.getLigaFila();
+                            p=matrizDefinitiva.punta.getLigaFila();
+                           while (s != Multi.matrizDefinitiva.punta && p != matrizDefinitiva.punta && encontrado != true){
+                            if (s.getFila()==k && s.getColumna()==c && p.getFila()==f && p.getColumna() ==k){
+                                resultado=resultado+p.getDato()*s.getDato();
+                                encontrado = true;
+                            }
+                            s=s.getLigaColumna();
+                            p=p.getLigaFila();
+                            } 
+                            k++;
+                        }
+                        multiplicacion[f][c]=resultado;
+                        resultado=0;
+                    c++;
+                }
+                f++;
+            }
+            Forma2 nueva = new Forma2();
+            nueva.crear(multiplicacion, multiplicacion.length, multiplicacion[0].length);
+            return nueva;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Estas matrices no se pueden multiplicar");
+            return null;
+        }
     }
 }
