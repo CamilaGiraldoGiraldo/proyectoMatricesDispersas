@@ -9,12 +9,12 @@ public class Lista {
     void insertar(nodoF2 nuevo) {
         if (punta == null) {
             punta = nuevo;
-            nuevo.setLigaColumna(punta);
-            nuevo.setLigaColumna(punta);
+            nuevo.setLigaFila(punta);
+            nuevo.setLigaFila(punta);
             cola = nuevo;
         } else {
-            cola.setLigaColumna(nuevo);
-            nuevo.setLigaColumna(punta);
+            cola.setLigaFila(nuevo);
+            nuevo.setLigaFila(punta);
             cola = nuevo;
         }
     }
