@@ -146,7 +146,8 @@ public class main {
                                         + "5. Eliminar dato\n"
                                         + "6. Sumar dos matrices\n"
                                         + "7. Multiplicar dos matrices\n"
-                                        + "8. Salir"));
+                                        + "8. Mostrar matriz original\n"
+                                        + "9. Salir"));
                         switch (opcion) {
                             case 1:
                                 JOptionPane.showMessageDialog(null, dispersForma2.Mostrar(matriz.length, matriz[0].length));
@@ -195,8 +196,10 @@ public class main {
                                 JOptionPane.showMessageDialog(null,"esta es la matriz 1: \n"+ dispersForma2.Mostrar(matriz.length, matriz[0].length)+ "Esta es la matriz 2: \n" + matriz2.Mostrar(matrizM.length, matrizM[0].length)+ " Esta es la multiplicacion:\n"+ matrizMultiplicada.Mostrar(matriz.length, matriz[0].length));
                             break;
                             case 8:
-                                controlMenu = false;
-                                JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestro sistema");
+                                mostrarOriginal(matriz);
+                            break;
+                            case 9:
+                                controlMenu3 = false;
                                 break;
                             default:
                                 JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
